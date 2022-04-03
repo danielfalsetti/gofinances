@@ -28,12 +28,12 @@ export function HighlightCard (params: Props){
     return (
         <Container type={params.type}>
             <Header>
-                <Title>{params.title}</Title>
+                <Title type={params.type}>{params.title}</Title>
                 <Icon name={icon[params.type]} type={params.type}/>
             </Header>
             <Footer>
-                <Amount>{params.amount}</Amount>
-                <LastTransaction>{params.lastTransaction}</LastTransaction>
+                <Amount type={params.type}>{params.amount}</Amount>
+                <LastTransaction type={params.type}>{params.lastTransaction}</LastTransaction>
             </Footer>
         </Container>
     )
