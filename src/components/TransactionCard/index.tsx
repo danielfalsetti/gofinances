@@ -12,25 +12,35 @@ import {
     Date
 } from './styles';
 
-interface Props {
+interface Category {
+    name: string;
+    icon: string;
+
+}
+
+interface Data {
     title: string;
     amount: string;
-    lastTransaction: string;
-    type: 'up' | 'down' | 'total'
+    category: Category;
+    date: string;
+    //type: 'up' | 'down' | 'total'
+}
+
+interface Props {
+    data: Data
 }
 
 export function TransactionCard (params: Props){
     return (
-        <Container type={params.type}>
-            <Title type={params.type}>{params.title}</Title>
-            <Amount type={params.type}>{params.amount}</Amount>
-            <Footer>
-                
-                <Category type={params.type}>{params.lastTransaction}
-                    <Icon name={icon[params.type]} type={params.type}/>
-                    <CategoryName type={params.type}>{params.lastTransaction}</CategoryName>
+        <Container>
+            <Title>{params.data.title}</Title>
+            <Amount>{params.data.amount}</Amount>
+            <Footer>                
+                <Category>
+                    <Icon name={params.data.category.icon}/>
+                    <CategoryName>{params.data.category.name}</CategoryName>
                 </Category>
-                <Date type={params.type}>{params.lastTransaction}</Date>
+                <Date>{params.data.date}</Date>
             </Footer>
         </Container>
     )

@@ -3,7 +3,7 @@ import {Feather} from '@expo/vector-icons';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 
 interface TypeProps  {
-    type: 'up' | 'down' | 'total'
+    //type: 'up' | 'down' | 'total'
 }
 
 export const Container = styled.View<TypeProps>`
@@ -13,6 +13,8 @@ export const Container = styled.View<TypeProps>`
     padding: 17px 24px;
     padding-bottom: ${RFValue(42)}px;
     margin-right: 16px;
+    
+    margin-bottom: 16px;
 `;
 
 
@@ -41,21 +43,19 @@ export const Category = styled.View`
 
 export const Icon = styled(Feather)<TypeProps>`
     font-size: ${RFValue(20)}px;
-
-    ${props => props.type === 'up' && css`
-        color: ${ props => props.theme.colors.success};
-    `};
-
-    ${props => props.type === 'down' && css`
-        color: ${ props => props.theme.colors.attention};
-    `};
-
-    ${props => props.type === 'total' && css`
-        color: ${ props => props.theme.colors.shape};
-    `};
-
+     color: ${ props => props.theme.colors.text};
 `; 
 
-export const CategoryName = styled.Text``;
+export const CategoryName = styled.Text<TypeProps>`
+    font-size: ${RFValue(14)}px;
 
-export const Date = styled.Text``;
+    margin-left: 17px;
+
+    color: ${ props => props.theme.colors.text};
+
+`;
+
+export const Date = styled.Text<TypeProps>`
+    font-size: ${RFValue(14)}px;
+    color: ${ props => props.theme.colors.text};
+`;

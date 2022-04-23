@@ -81,4 +81,14 @@ export const Transactions = styled.View`
 export const Title = styled.Text`
     font-size: ${RFValue(18)}px;
     font-family: ${ props => props.theme.fonts.regular};
+
+    margin-bottom: 16px;
+`;
+
+
+export const TransactionList = styled.FlatList`
+    font-size: ${RFValue(18)}px;
+    font-family: ${ props => props.theme.fonts.regular};
+
+    margin-bottom: 16px;
 `;
