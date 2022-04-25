@@ -18,23 +18,26 @@ interface Category {
 
 }
 
-interface Data {
+export interface TransactionCardProps {
     title: string;
     amount: string;
     category: Category;
     date: string;
-    //type: 'up' | 'down' | 'total'
+    type: 'positive' | 'negative'
 }
 
 interface Props {
-    data: Data
+    data: TransactionCardProps
 }
 
 export function TransactionCard (params: Props){
     return (
         <Container>
             <Title>{params.data.title}</Title>
-            <Amount>{params.data.amount}</Amount>
+            <Amount type={params.data.type}>
+            {params.data.type === 'negative' && '- '}
+            {params.data.amount}
+            </Amount>
             <Footer>                
                 <Category>
                     <Icon name={params.data.category.icon}/>
