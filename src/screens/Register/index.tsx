@@ -1,11 +1,15 @@
 import React from "react";
 
 import { Input } from '../../components/Form/Input';
+import { Button } from '../../components/Form/Button';
+import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
 
 import {
     Container,
     Header,
-    Title
+    Title,
+    Form,
+    Fields
    
 } from './styles';
 
@@ -15,9 +19,27 @@ export function Register () {
             <Header>
                 <Title>Cadastro</Title>
             </Header>
-            <Input>
+
+            <Form>
+                <Fields>                    
+                    <Input
+                        placeholder="Nome"
+                    />
+                    <Input
+                        placeholder="Preço"
+                    />
+                    <TransactionTypeButton
+                        type="up"
+                        title="Income"
+                    />
+                </Fields>
+
                 
-            </Input>
+                
+                <Button title="Enviar"/>
+
+                
+            </Form>
         </Container>
     );
 }
